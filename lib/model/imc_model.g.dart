@@ -12,14 +12,14 @@ mixin _$ImcModel on _ImcModelBase, Store {
   final _$alturaAtom = Atom(name: '_ImcModelBase.altura');
 
   @override
-  double get altura {
+  String get altura {
     _$alturaAtom.context.enforceReadPolicy(_$alturaAtom);
     _$alturaAtom.reportObserved();
     return super.altura;
   }
 
   @override
-  set altura(double value) {
+  set altura(String value) {
     _$alturaAtom.context.conditionallyRunInAction(() {
       super.altura = value;
       _$alturaAtom.reportChanged();
@@ -29,18 +29,35 @@ mixin _$ImcModel on _ImcModelBase, Store {
   final _$pesoAtom = Atom(name: '_ImcModelBase.peso');
 
   @override
-  double get peso {
+  String get peso {
     _$pesoAtom.context.enforceReadPolicy(_$pesoAtom);
     _$pesoAtom.reportObserved();
     return super.peso;
   }
 
   @override
-  set peso(double value) {
+  set peso(String value) {
     _$pesoAtom.context.conditionallyRunInAction(() {
       super.peso = value;
       _$pesoAtom.reportChanged();
     }, _$pesoAtom, name: '${_$pesoAtom.name}_set');
+  }
+
+  final _$categoriaAtom = Atom(name: '_ImcModelBase.categoria');
+
+  @override
+  String get categoria {
+    _$categoriaAtom.context.enforceReadPolicy(_$categoriaAtom);
+    _$categoriaAtom.reportObserved();
+    return super.categoria;
+  }
+
+  @override
+  set categoria(String value) {
+    _$categoriaAtom.context.conditionallyRunInAction(() {
+      super.categoria = value;
+      _$categoriaAtom.reportChanged();
+    }, _$categoriaAtom, name: '${_$categoriaAtom.name}_set');
   }
 
   final _$resultadoAtom = Atom(name: '_ImcModelBase.resultado');
@@ -64,7 +81,7 @@ mixin _$ImcModel on _ImcModelBase, Store {
       ActionController(name: '_ImcModelBase');
 
   @override
-  void setAltura(double value) {
+  void setAltura(String value) {
     final _$actionInfo = _$_ImcModelBaseActionController.startAction();
     try {
       return super.setAltura(value);
@@ -74,7 +91,7 @@ mixin _$ImcModel on _ImcModelBase, Store {
   }
 
   @override
-  dynamic setPeso(double value) {
+  dynamic setPeso(String value) {
     final _$actionInfo = _$_ImcModelBaseActionController.startAction();
     try {
       return super.setPeso(value);
@@ -94,9 +111,19 @@ mixin _$ImcModel on _ImcModelBase, Store {
   }
 
   @override
+  dynamic verificaCategoria() {
+    final _$actionInfo = _$_ImcModelBaseActionController.startAction();
+    try {
+      return super.verificaCategoria();
+    } finally {
+      _$_ImcModelBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
   String toString() {
     final string =
-        'altura: ${altura.toString()},peso: ${peso.toString()},resultado: ${resultado.toString()}';
+        'altura: ${altura.toString()},peso: ${peso.toString()},categoria: ${categoria.toString()},resultado: ${resultado.toString()}';
     return '{$string}';
   }
 }
